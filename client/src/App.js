@@ -1,6 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import {Routes, Route, Link} from 'react-router-dom';
 import './App.css';
+
+// Route imports
+import Create from "./components/Create";
 
 function App() {
   return (
@@ -9,7 +11,7 @@ function App() {
 
       <Routes>
         {/* Create Product Route */}
-        <Route path="/" element={<p></p>}/>
+        <Route path="/" element={<Create/>}/>
       </Routes>
     </div>
   );

@@ -12,4 +12,7 @@ app.use(cors());
 
 require("./configs/mongoose.config");
 
+const Routes = require("./routes/product.routes");
+Routes(app);
+
 app.listen(port, () => console.log("Port connection established on:", port));

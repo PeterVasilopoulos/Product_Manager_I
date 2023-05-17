@@ -36,3 +36,22 @@
   color: rgb(0, 140, 255);
   cursor: pointer;
 }
+
+
+/* Products List */
+#product-list {
+  list-style: none;
+}
+
+.product-list-item {
+  font-size: 20px;
+}
+
+
+/* Product Details */
+#product-details {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  width: 400px;
+  margin: 0 auto 20px;
+}

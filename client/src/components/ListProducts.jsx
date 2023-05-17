@@ -9,6 +9,26 @@ const ListProducts = () => {
     // Variable for all products
     const [products, setProducts] = useState([]);
 
+    // Variable to check if something was deleted
+    const [deleted, setDeleted] = useState(false);
+
+    // Delete button function
+    const deleteButton = (e, id) => {
+        e.preventDefault();
+
+        axios.delete(`http://localhost:8000/api/products/delete/${id}`)
+        .then((res) => {
+            // Log data
+            console.log("Delete request.", res)
+            // Swap deleted variable
+            setDeleted(!deleted)
+        })
+        .catch((err) => {
+            // Log error if we get one
+            console.log("Delete request error.", err)
+        })
+    }
+
     // useEffect to get all products from database
     useEffect(() => {
         axios.get("http://localhost:8000/api/products")
@@ -22,7 +42,7 @@ const ListProducts = () => {
             // Log error if we get one
             console.log("Product list get request error:", err)
         })
-    }, [])
+    }, [deleted])
 
     return (
         <div>
@@ -33,11 +53,21 @@ const ListProducts = () => {
                 {
                     products.map((product, i) => {
                         return (
-                            <Link to={`/${product._id}`} key={i}>
-                                <p className='product-list-item'>
-                                    {product.title}
-                                </p>
-                            </Link>
+                            <div className="product">
+                                {/* Product Link */}
+                                <Link to={`/${product._id}`} key={i}>
+                                    <p className='product-list-item'>
+                                        {product.title}
+                                    </p>
+                                </Link>
+
+                                {/* Delete Button */}
+                                <button 
+                                className='home-delete'
+                                onClick={(e) => {deleteButton(e, product._id)}}>
+                                    Delete
+                                </button>
+                            </div>
                         )
                     })
                 }

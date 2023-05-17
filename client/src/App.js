@@ -5,6 +5,7 @@ import './App.css';
 import Create from "./components/Create";
 import ListProducts from './components/ListProducts';
 import Details from './components/Details';
+import Edit from './components/Edit';
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
         {/* Product Details Route */}
         <Route path="/:id" element={
           <Details/>
+        }/>
+
+        {/* Edit Product Route */}
+        <Route path='/:id/edit' element={
+          <Edit/>
         }/>
       </Routes>
     </div>

@@ -26,7 +26,6 @@
 .form-submit {
   background-color: white;
   font-size: 16px;
-  border: 2px solid black;
   padding: 4px 8px;
   border-radius: 3px;
 }
@@ -54,4 +53,36 @@
   border-bottom: solid 1px black;
   width: 400px;
   margin: 0 auto 20px;
+}
+
+#edit-delete {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#edit-delete button {
+  width: 60px;
+  padding: 4px 0;
+  background-color: white;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#edit {
+  color: rgb(255, 187, 0);
+}
+
+#edit:hover {
+  border: 2px solid rgb(255, 187, 0);
+}
+
+#delete {
+  color: red;
+}
+
+#delete:hover {
+  border: 2px solid red;
 }

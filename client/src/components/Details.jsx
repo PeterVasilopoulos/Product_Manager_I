@@ -24,6 +24,29 @@ const Details = () => {
         navigate('/');
     }
 
+    // Edit button function
+    const editButton = (e) => {
+        e.preventDefault();
+        navigate(`/${id}/edit`)
+    }
+
+    // Delete button function
+    const deleteButton = (e) => {
+        e.preventDefault();
+        
+        axios.delete(`http://localhost:8000/api/products/delete/${id}`)
+        .then((res) => {
+            // Log data
+            console.log("Delete request.", res)
+            // Navigate to home
+            navigate('/');
+        })
+        .catch((err) => {
+            // Log error if we get one
+            console.log("Delete request error.", err)
+        })
+    }
+
     // Get Product Info
     useEffect(() => {
         axios.get(`http://localhost:8000/api/products/${id}`)
@@ -48,6 +71,12 @@ const Details = () => {
                 <h2>{product.title}</h2>
                 <p>${product.price}</p>
                 <p>{product.description}</p>
+            </div>
+
+            {/* Edit and Delete Buttons */}
+            <div id='edit-delete'>
+                <button id='edit' onClick={editButton}>Edit</button>
+                <button id='delete' onClick={deleteButton}>Delete</button>
             </div>
 
             {/* Home Button */}

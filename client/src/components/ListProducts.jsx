@@ -33,8 +33,8 @@ const ListProducts = () => {
                 {
                     products.map((product, i) => {
                         return (
-                            <Link to={`/${product._id}`}>
-                                <p key={i} className='product-list-item'>
+                            <Link to={`/${product._id}`} key={i}>
+                                <p className='product-list-item'>
                                     {product.title}
                                 </p>
                             </Link>

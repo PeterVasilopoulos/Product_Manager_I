@@ -12,6 +12,11 @@ const Create = () => {
     // Description Variable
     const [description, setDescription] = useState("");
 
+    // Product created variable
+    // this will be imported into the productlist to check
+    // when a new product has been added
+    const [created, setCreated] = useState(false);
+
     const handleSubmit = (e) => {
         // Prevent button default behavior
         e.preventDefault();
@@ -21,6 +26,8 @@ const Create = () => {
         .then((res) => {
             // Log data
             console.log("Create page success:", res);
+            // Update created variable
+            setCreated(!created);
         })
         .catch((err) => {
             // Log error if we get one
